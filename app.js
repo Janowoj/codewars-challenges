@@ -94,3 +94,27 @@ function findShorts(s) {
 }
 
 console.log(findShorts("Let's travel abroad shall we"))
+
+// =====================================================================================================================
+
+function isSquare(n) {
+    let regex = /[^0-9]/;
+    if (regex.test(Math.sqrt(n)) === false) {
+        return true;
+    } else { return false };
+}
+console.log(isSquare(25));
+console.log(isSquare(24));
+console.log(isSquare(-25));
+
+// another solution:
+
+function isSquare2(n) {
+    return Math.sqrt(n) % 1 === 0;
+}
+
+console.log(isSquare2(25));
+console.log(isSquare2(24));
+console.log(isSquare2(-25));
+
+// ====================================================================
