@@ -85,3 +85,12 @@ function DNAStrand(dna) {
 
 
 console.log(DNAStrand('ATTGC'));
+
+// =====================================================================================================================
+
+function findShorts(s) {
+    let arr = s.split(" ").map(item => item.length);
+    return Math.min(...arr);
+}
+
+console.log(findShorts("Let's travel abroad shall we"))
