@@ -1,0 +1,41 @@
+body {
+    font-size: 1.2rem;
+}
+
+.article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+.code,
+p,
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.code,
+.code-main {
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.code-main {
+    background-color: rgb(221, 181, 181);
+    width: 100%;
+}
+
+.code {
+    background-color: rgb(103, 165, 144);
+    width: 100%;
+}

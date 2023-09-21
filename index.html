@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>RegEx</title>
+</head>
+
+<body>
+    <div class="article">
+        <h1>More about RegEx</h1>
+
+        <div class="about">
+            <h2>What is Regex in JS?</h2>
+            <p>Regex is a sequence of characters that forms a search pattern.
+                It is used mainly for string search and manipulation.
+            </p>
+            <p>Here is an example of a regex pattern:</p>
+
+            <pre class="code">/^r...x$/</pre>
+
+            <p>This above code defines a regex pattern. It means: Any five letter string starting with letter r and
+                ending
+                with x.</p>
+        </div>
+
+        <div class="create">
+            <h2>How to create a regex pattern?</h2>
+            <p>There are two ways to create a regex pattern in JS:</p>
+            <ul>
+                <li>Using a regex literal</li>
+                <pre class="code">const regularExp = /abc/;
+console.log(regularExp.test('abc')); // true</pre>
+                <li>Using a regex constructor</li>
+                <pre class="code">
+const regexOne = new RegExp(/^r...x$/);
+console.log(regexOne.test('regex')); // true</pre>
+            </ul>
+            <p>Both of the above methods will return true if the string matches the regex pattern.</p>
+            <p>As you can see, the regex pattern is written between two forward slashes:
+                <br>
+            </p>
+            <pre class="code"><b>/regex pattern/</b></pre>
+
+            <p>
+                There are several methods
+                that can be used with regex patterns. Some of them are:
+                test(), exec(), match(), search(), replace(), split().
+            </p>
+            <p>
+                Here we used the test() method to check if the string matches the regex pattern.
+            </p>
+        </div>
+
+        <div class="metachar">
+            <h2>How to specify pattern using RegEx?</h2>
+            <p>
+                There are several metacharacters that can be used to specify the pattern.
+                <br>
+                Here are some of them:
+            </p>
+            <div class="table">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Metacharacter</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>[]</td>
+                            <td>Matches set of characters inside square brackets</td>
+                        </tr>
+                        <tr>
+                            <td>.</td>
+                            <td>Matches any single character except newline</td>
+                        </tr>
+                        <tr>
+                            <td>^</td>
+                            <td>Matches the beginning of the string</td>
+                        </tr>
+                        <tr>
+                            <td>$</td>
+                            <td>Matches the end of the string</td>
+                        </tr>
+                        <tr>
+                            <td>*</td>
+                            <td>Matches zero or more occurrences of the pattern left to it</td>
+                        </tr>
+                        <tr>
+                            <td>+</td>
+                            <td>Matches one or more occurrences of the pattern left to it</td>
+                        </tr>
+                        <tr>
+                            <td>?</td>
+                            <td>Matches zero or one occurrence of the pattern left to it</td>
+                        </tr>
+                        <tr>
+                            <td>{n}</td>
+                            <td>Matches exactly n occurrences of the pattern left to it</td>
+                        </tr>
+                        <tr>
+                            <td>{n,m}</td>
+                            <td>Matches at least n and at most m occurrences of the pattern left to it</td>
+                        </tr>
+                        <tr>
+                            <td>a|b</td>
+                            <td>match any string that contains either a or b</td>
+                        </tr>
+                        <tr>
+                            <td>[abc]</td>
+                            <td>Matches any character between the brackets</td>
+                        </tr>
+                        <tr>
+                            <td>[^abc]</td>
+                            <td>Matches any character except the ones between the brackets</td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>[0-9]</td>
+                            <td>Matches any digit between the brackets</td>
+                        </tr>
+                        <tr>
+                            <td>[^0-9]</td>
+                            <td>Matches any non-digit character between the brackets</td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>(x|y)</td>
+                            <td>Matches either x or y</td>
+                        </tr>
+                        <tr>
+                            <td>()</td>
+                            <td>(a|b|c)xz match any string that matches either a or b or c followed by xz</td>
+                        </tr>
+                        <tr>
+                            <td>\</td>
+                            <td>Escapes(!) special characters</td>
+                        </tr>
+                        <tr>
+                            <td>\d</td>
+                            <td>Matches any digit</td>
+                        </tr>
+                        <tr>
+                            <td>\D</td>
+                            <td>Matches any non-digit character</td>
+                        </tr>
+                        <tr>
+                            <td>\s</td>
+                            <td>Matches any whitespace character</td>
+                        </tr>
+                        <tr>
+                            <td>\S</td>
+                            <td>Matches any non-whitespace character</td>
+                        </tr>
+                        <tr>
+                            <td>\w</td>
+                            <td>Matches any word character</td>
+                        </tr>
+                        <tr>
+                            <td>\W</td>
+                            <td>Matches any non-word character</td>
+                        </tr>
+                        <tr>
+                            <td>\b</td>
+                            <td>Matches characters at the beginning or end of a word</td>
+                        </tr>
+                        <tr>
+                            <td>\B</td>
+                            <td>Matches characters not at the beginning or end of a word</td>
+                        </tr>
+                        <tr>
+                            <td>\0</td>
+                            <td>Matches a NUL character</td>
+                        </tr>
+                        <tr>
+                            <td>\n</td>
+                            <td>Matches a new line character</td>
+                        </tr>
+                        <tr>
+                            <td>\Z
+                            </td>
+                            <td>Matches if the specified characters are at the end of a string</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="flags">
+
+                <h2>
+                    What are flags in RegEx?
+                </h2>
+                <p>
+                    There are also flags that can be used with regex patterns.
+                    <br>
+                    Here are some of them:
+                </p>
+                <p>
+                    <b>g</b> - Global search
+                    <b>m</b> - Multi-line search
+                    <b>i</b> - Case-insensitive search
+                </p>
+            </div>
+
+            <div class="example">
+                <h2>How does it work?</h2>
+                <h3>Example 1:</h3>
+
+                <pre class="code-main">
+                    const re = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+                    let str = '(123) 456-7890';
+                    let str2 = '123-456-7890';
+                    let str3 = '123.456.7890';
+                    let str4 = '1112223333';
+                    console.log(re.test(str)); // true
+                    console.log(re.test(str2)); // true
+                    console.log(re.test(str3)); // true
+                    console.log(re.test(str4)); // true
+                </pre>
+
+                <h3>How to figure out what a regex pattern does?</h3>
+                <p>
+                    Let's take the above regex pattern as an example:
+                </p>
+                <pre class="code">^\(?</pre>
+                <p> means zero or one occurrence of the ( sign in the beginning</p>
+                <br>
+                <pre class="code">([0-9]{3})</pre>
+                <p>means 3 any digit between the brackets </p>
+                <br>
+                <pre class="code">\)?</pre>
+                <p> means zero or one occurrence of the ) sign</p>
+                <br>
+                <pre class="code">[-. ]?</pre>
+                <p> means zero or one occurrence of the - or . or space sign</p>
+                <br>
+                <pre class="code">([0-9]{3})</pre>
+                <p>means 3 any digit between the brackets </p>
+                <br>
+                <pre class="code">[-. ]?</pre>
+                <p> means zero or one occurrence of the - or . or space sign</p>
+                <br>
+                <pre class="code">([0-9]{4})</pre>
+                <p>means 4 any digit between the brackets </p>
+                <br>
+                <pre class="code">$</pre>
+                <p> means the end of the string</p>
+                <br>
+                <p>
+                    So, this regex pattern will match any phone number in the following format:
+                    <br>
+                    (123) 456-7890
+                    <br>
+                    (123).456.7890
+                    <br>
+                    (123)-456-7890
+                    <br>
+                    123-456-7890
+                    <br>
+                    123 456 7890
+                    <br>
+                    1234567890
+                </p>
+
+                <h3>Example 2:</h3>
+
+                <pre class="code-main">
+                    const reg2 = /^([a-zA-Z0-9._-]+)@([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,4})$/
+                    let email = 'example@email.com';
+                    let email2 = 'learn_Regex@email.com';
+                    let email3 = 'learn_Regex-2times&more@email.com';
+                    console.log(reg2.test(email)); // true
+                    console.log(reg2.test(email2)); // true
+                    console.log(reg2.test(email3)); // false;
+                </pre>
+
+                <h3>How to figure out what a regex pattern does?</h3>
+                <p>
+                    Let's take the above regex pattern as an example:
+                </p>
+
+                <pre class="code">^</pre>
+                <p> means the beginning of the string</p>
+                <br>
+                <pre class="code">([a-zA-Z0-9._-]+)</pre>
+                <p>means one or more occurrences of any letter from a to z or A to Z or any digit from 0 to 9 or . or _
+                    or -</p>
+                <br>
+                <pre class="code">@</pre>
+                <p> means the @ sign</p>
+                <br>
+                <pre class="code">([a-zA-Z0-9.-]+)</pre>
+                <p>means one or more occurrences of any letter from a to z or A to Z or any digit from 0 to 9 or . or -
+                </p>
+                <br>
+                <pre class="code">\.</pre>
+                <p> means the . sign</p>
+                <br>
+                <pre class="code">([a-zA-Z]{2,4})</pre>
+                <p>means 2 to 4 occurrences of any letter from a to z or A to Z</p>
+                <br>
+                <pre class="code">$</pre>
+                <p> means the end of the string</p>
+                <br>
+
+                <p>
+                    So, this regex pattern will match any email address in the following format:
+                    <br>
+                    example@gmail.com
+                    <br>
+                    learningRegex@gmail.com
+
+                </p>
+
+                <h3>
+                    Example 3:
+                </h3>
+
+                <pre class="code-main">
+                    function createPhoneNumber(numbers){
+                        return numbers.join('').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+                      }
+                        console.log(createPhoneNumber([1,2,3,4,5,6,7,8,9,0])); // (123) 456-7890
+                        console.log(createPhoneNumber([1,1,1,1,1,1,1,1,1,1])); // (111) 111-1111
+                </pre>
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
