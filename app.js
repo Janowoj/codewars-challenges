@@ -48,3 +48,40 @@ function descendingOrder(n) {
 
 console.log(typeof descendingOrder(48693));
 console.log(descendingOrder(-48693));
+
+// =====================================================================================================================
+
+function highAndLow(numbers) {
+    // ...
+    return `${Math.max(...numbers.split(' '))} ${Math.min(...numbers.split(' '))}`;
+}
+
+console.log(highAndLow('1 3 9 13'));
+
+// another solution:
+
+function highAndLow2(numbers) {
+    return `${numbers.split(' ').sort((a, b) => (b - a))[0]} ${numbers.split(' ').sort((a, b) => (a - b))[0]}`;
+}
+
+console.log(highAndLow2('11 3 9 13 -5'));
+
+// =====================================================================================================================
+
+function DNAStrand(dna) {
+    //your code here
+    let dnaPairs = [['A', 'T'], ['T', 'A'], ['G', 'C'], ['C', 'G']]
+    let dnaArr = dna.split('');
+    for (let i = 0; i < dnaArr.length; i++) {
+        for (let j = 0; j < dnaPairs.length; j++) {
+            if (dnaArr[i] === dnaPairs[j][0]) {
+                dnaArr[i] = dnaPairs[j][1];
+                break;
+            }
+        }
+    }
+    return dnaArr.join('');
+}
+
+
+console.log(DNAStrand('ATTGC'));
