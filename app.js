@@ -118,3 +118,9 @@ console.log(isSquare2(24));
 console.log(isSquare2(-25));
 
 // ====================================================================
+
+function addBinary(a, b) {
+    return (a + b).toString(2);
+}
+
+console.log(addBinary(1, 2));
