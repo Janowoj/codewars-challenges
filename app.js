@@ -124,3 +124,13 @@ function addBinary(a, b) {
 }
 
 console.log(addBinary(1, 2));
+
+// ====================================================================
+
+function findNextSquare(sq) {
+    let regex = /[0-9]/;
+    if (regex.test(Math.sqrt(sq)) === true) {
+        return Math.pow((Math.sqrt(sq) + 1), 2);
+    } else return -1;
+}
+console.log(findNextSquare(37));
