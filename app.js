@@ -142,3 +142,52 @@ function squareDigits(num) {
 }
 
 console.log(squareDigits(234));
+
+// ====================================================================
+
+
+function reverseString(str) {
+    let revStr = '';
+
+    for (let i = str.length - 1; i >= 0; i--) {
+        revStr += str[i];
+    }
+    return revStr;
+}
+
+console.log(reverseString("JavaScript can be quite absorbing..."));
+
+// ====================================================================
+
+function reverseWords(str) {
+    let arr = str.split(/(\s+)/);
+    let result = ''
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = arr[i].length - 1; j >= 0; j--) {
+            result += arr[i][j];
+        }
+    }
+
+    return result;
+}
+
+console.log(reverseWords("JavaScript can be quite absorbing..."));
+
+// another solution:
+
+function reverseWords2(str) {
+    // Go for it
+    //split words into seperate arrays
+    return str.split("").reverse().join("").split(" ").reverse().join(" ");
+}
+
+console.log(reverseWords2("JavaScript can be quite absorbing..."));
+
+//   another solution:
+
+function reverseWords3(str) {
+    return str.split(' ').map(str => str.split('').reverse().join('')).join(' ');
+}
+
+console.log(reverseWords3("JavaScript can be quite absorbing..."));
