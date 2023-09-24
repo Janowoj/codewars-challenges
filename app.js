@@ -191,3 +191,32 @@ function reverseWords3(str) {
 }
 
 console.log(reverseWords3("JavaScript can be quite absorbing..."));
+
+// ====
+
+function makeNegative(num) {
+    // Code?
+    if (Number.isInteger(num) && num > 0) {
+        return -num;
+    } else {
+        return num;
+    }
+}
+
+console.log(makeNegative(5));
+console.log(makeNegative(-5));
+
+// another solution:
+
+function makeNegative2(num) {
+    return num < 0 ? num : -num;
+}
+
+console.log(makeNegative2(5));
+console.log(makeNegative2(-5));
+
+// another solution:
+
+function makeNegative(num) {
+    return -Math.abs(num);
+}
