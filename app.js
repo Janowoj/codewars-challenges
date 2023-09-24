@@ -220,3 +220,18 @@ console.log(makeNegative2(-5));
 function makeNegative(num) {
     return -Math.abs(num);
 }
+
+// ====================================================================
+
+function pigIt(str) {
+    //Code here
+    return str.split(' ').map(item => {
+        if (item.match(/[a-z]/i)) {
+            return item.slice(1) + item[0] + 'ay'
+        } else { return item }
+    }).join(' ');
+}
+
+
+console.log(pigIt('Pig latin is cool')); // igPay atinlay siay oolcay
+console.log(pigIt('Hello world !'));     // elloHay orldway !
