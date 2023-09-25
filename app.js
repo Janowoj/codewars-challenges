@@ -380,10 +380,12 @@ function uniqueElements(iterable) {
     return unique;
 }
 
+console.log('uniqueElements');
 console.log(uniqueElements('AAABBCCCCCBBB'));
 console.log(uniqueElements('AAAbCCCcBB'));
 console.log(uniqueElements([1, 2, 2, 5, 1]));
-console.log('==========');
+console.log('=================');
+
 
 // another solution:
 
@@ -392,10 +394,69 @@ function uniqueElements(iterable) {
     return [...iterable].filter((item, index) => iterable.indexOf(item) === index);
 }
 
+console.log('uniqueElements');
 console.log(uniqueElements('AAABBCCCCCBBB'));
 console.log(uniqueElements('AAAbCCCcBB'));
 console.log(uniqueElements([1, 2, 2, 5, 1]));
-console.log(uniqueElements('ABCDAB'));
+console.log('------------------');
+
+
+// ===========================================================
+
+// not good solution
+
+function uniqueInOrder(iterable) {
+    let arr = [];
+    //your code here - remember iterable can be a string or an array
+    for (let i = 0; i < iterable.length; i++) {
+        if (iterable[i] !== iterable[i + 1]) {
+            arr.push(iterable[i]);
+            // i++;
+        }
+    } return arr;
+}
+
+console.log('uniqueInOrder');
+console.log(uniqueInOrder('AAAABBBCCDAABBB'));
+console.log(uniqueInOrder('AAAbCCCcBB'));
+console.log(uniqueInOrder([1, 2, 2, 5, 1, 2]));
+console.log(uniqueInOrder('ABCDAB'));
+console.log('-----------');
+
+
+// good solution:
+
+function uniqueInOrder2(iterable) {
+    //your code here - remember iterable can be a string or an array
+    return [...iterable].filter((item, index) => iterable[index] !== iterable[index + 1]);
+}
+
+console.log('uniqueInOrder2');
+console.log(uniqueInOrder2('AAABBCCCCCBBB'));
+console.log(uniqueInOrder2('AAAbCCCcBB'));
+console.log(uniqueInOrder2([1, 2, 2, 5, 1, 2]));
+console.log(uniqueInOrder2('ABCDAB'));
+console.log('=============');
 
 // another solution:
+
+function uniqueInOrder3(iterable) {
+    //your code here - remember iterable can be a string or an array
+    if (typeof (iterable) === 'string') {
+        iterable = iterable.split('');
+    }
+    for (let i = 0; i < iterable.length; i++) {
+        if (iterable[i] === iterable[i + 1]) {
+            iterable.splice(i, 1);
+            i--;
+        }
+    } return iterable;
+}
+
+console.log('uniqueInOrder3');
+console.log(uniqueInOrder3('AAABBCCCCCBBB'));
+console.log(uniqueInOrder3('AAAbCCCcBB'));
+console.log(uniqueInOrder3([1, 2, 2, 5, 1, 2]));
+console.log(uniqueInOrder3('ABCDAB'));
+console.log('-----------');
 
