@@ -411,7 +411,6 @@ function uniqueInOrder(iterable) {
     for (let i = 0; i < iterable.length; i++) {
         if (iterable[i] !== iterable[i + 1]) {
             arr.push(iterable[i]);
-            // i++;
         }
     } return arr;
 }
@@ -460,3 +459,57 @@ console.log(uniqueInOrder3([1, 2, 2, 5, 1, 2]));
 console.log(uniqueInOrder3('ABCDAB'));
 console.log('-----------');
 
+// ===========================================================
+
+function solution(str, ending) {
+    // TODO: complete
+    if (str.includes(ending, str.length - ending.length) === true) {
+        return true;
+    } else return false;
+}
+
+console.log(solution('abcde', 'cde')); // returns true
+console.log(solution('abcde', 'abc')); // returns false
+console.log(solution('abc', 'c')); // returns false
+console.log('=============');
+
+// another solution:
+
+function solution2(str, ending) {
+    return str.endsWith(ending);
+}
+
+// another solution:
+
+function solution3(str, ending) {
+    return new RegExp(ending + "$", "i").test(str);
+}
+
+//   another solution:
+
+function solution4(str, ending) {
+    return str.slice(-ending.length) == ending;
+}
+
+console.log(solution4('abcde', 'cde')); // returns true
+console.log(solution4('abcde', 'abc')); // returns false
+console.log(solution4('abc', 'c')); // returns false
+
+// ===========================================================
+
+function areYouPlayingBanjo(name) {
+    // Implement me
+    if (name[0] === 'R' || name[0] === 'r') {
+        return `${name} plays banjo`;
+    } else return `${name} not play banjo`;
+}
+
+console.log(areYouPlayingBanjo('Roma'));
+console.log(areYouPlayingBanjo('roma'));
+console.log(areYouPlayingBanjo('Dima'));
+
+// another solution (interesting):
+
+function areYouPlayingBanjo(name) {
+    return name + (name[0].toLowerCase() == 'r' ? ' plays' : ' does not play') + " banjo";
+}
