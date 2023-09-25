@@ -235,3 +235,123 @@ function pigIt(str) {
 
 console.log(pigIt('Pig latin is cool')); // igPay atinlay siay oolcay
 console.log(pigIt('Hello world !'));     // elloHay orldway !
+
+// ===========================================================
+
+function digitalRoot(n) {
+    let arr = n.toString().split('');
+
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = Number(arr[i]);
+    }
+    let result = arr.reduce((a, b) => a + b);
+
+    if (result.toString().length > 1) {
+        return digitalRoot(result);
+    } else {
+        return result;
+    }
+}
+
+console.log(digitalRoot(234));
+console.log(digitalRoot(239));
+console.log(digitalRoot(23967));
+
+// another solution:
+
+function digitalRoot2(n) {
+    return (n - 1) % 9 + 1;
+}
+
+console.log(digitalRoot2(234));
+console.log(digitalRoot2(239));
+console.log(digitalRoot2(23967));
+
+
+// ===========================================================
+
+// slow solution
+
+function isPrime(num) {
+    // TODO
+    if (Math.abs(num) % 2 === 0 && Math.abs(num) !== 2 || Math.abs(num) === 1) {
+        return false;
+    }
+    if (Math.abs(num) % 3 === 0 && Math.abs(num) !== 3 || Math.abs(num) === 1) {
+        return false;
+    }
+    if (Math.abs(num) % 5 === 0 && Math.abs(num) !== 5 || Math.abs(num) === 1) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+console.log(isPrime(0));
+console.log(isPrime(1));
+console.log(isPrime(2));
+console.log(isPrime(5));
+console.log(isPrime(15));
+console.log(isPrime(23));
+console.log(isPrime(-1));
+console.log(isPrime(-5));
+console.log(isPrime(-9));
+console.log('================');
+
+// another slow solution
+
+function isPrime2(num) {
+    // TODO
+    const posNum = Math.abs(num);
+
+    if (posNum === 0 || posNum === 1) {
+        return false;
+    }
+
+    for (let i = 2; i < posNum; i++) {
+        if (posNum % i === 0) {
+            return false;
+        }
+    } return true;
+}
+
+console.log(isPrime2(0));
+console.log(isPrime2(1));
+console.log(isPrime2(2));
+console.log(isPrime2(5));
+console.log(isPrime2(15));
+console.log(isPrime2(23));
+console.log(isPrime2(-1));
+console.log(isPrime2(-5));
+console.log(isPrime2(-9));
+console.log('================');
+
+//  another solution
+
+function isPrime3(num) {
+    // TODO
+    // const posNum = Math.abs(num);
+
+    if (num === 0 || num === 1 || num < 0) {
+        return false;
+    }
+
+    let n = Math.sqrt(num);
+
+    for (let i = 2; i <= n; i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    } return true;
+}
+
+console.log(isPrime2(0));
+console.log(isPrime2(1));
+console.log(isPrime2(2));
+console.log(isPrime2(4));
+console.log(isPrime2(5));
+console.log(isPrime2(15));
+console.log(isPrime2(23));
+console.log(isPrime2(-1));
+console.log(isPrime2(-5));
+console.log(isPrime2(-9));
