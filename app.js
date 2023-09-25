@@ -355,3 +355,47 @@ console.log(isPrime2(23));
 console.log(isPrime2(-1));
 console.log(isPrime2(-5));
 console.log(isPrime2(-9));
+console.log('==================');
+
+
+// ===========================================================
+
+function uniqueElements(iterable) {
+    //your code here - remember iterable can be a string or an array
+    let unique = [];
+
+    if (typeof (iterable) === 'string') {
+        iterable.split('').forEach(item => {
+            if (unique.includes(item) === false) {
+                unique.push(item)
+            }
+        });
+    } else {
+        iterable.forEach(item => {
+            if (unique.includes(item) === false) {
+                unique.push(item)
+            }
+        });
+    }
+    return unique;
+}
+
+console.log(uniqueElements('AAABBCCCCCBBB'));
+console.log(uniqueElements('AAAbCCCcBB'));
+console.log(uniqueElements([1, 2, 2, 5, 1]));
+console.log('==========');
+
+// another solution:
+
+function uniqueElements(iterable) {
+    //your code here - remember iterable can be a string or an array
+    return [...iterable].filter((item, index) => iterable.indexOf(item) === index);
+}
+
+console.log(uniqueElements('AAABBCCCCCBBB'));
+console.log(uniqueElements('AAAbCCCcBB'));
+console.log(uniqueElements([1, 2, 2, 5, 1]));
+console.log(uniqueElements('ABCDAB'));
+
+// another solution:
+
