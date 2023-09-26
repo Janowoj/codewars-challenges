@@ -513,3 +513,49 @@ console.log(areYouPlayingBanjo('Dima'));
 function areYouPlayingBanjo(name) {
     return name + (name[0].toLowerCase() == 'r' ? ' plays' : ' does not play') + " banjo";
 }
+
+// ===========================================================
+
+// does't work
+
+// function accum(s) {
+//     // your code
+//     return s.split('').map(item => {
+//         for (let i = 0; i < s.length; i++) {
+//             item = s[i] * (i + 1);
+//         }
+//     })
+// }
+
+// console.log(accum("abcd"));  // "A-Bb-Ccc-Dddd"
+// console.log(accum("RqaEzty")); // "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// console.log(accum("cwAt")); // "C-Ww-Aaa-Tttt"
+
+// ===============================================================
+
+function getMiddle(s) {
+    //Code goes here!
+    if (s.length % 2 === 0) {
+        return s.substring(s.length / 2 - 1, s.length / 2 + 1);
+    } else {
+        return s.substring((s.length - 1) / 2, (s.length - 1) / 2 + 1);
+    }
+}
+
+console.log(getMiddle('test'));
+console.log(getMiddle('tester'));
+console.log(getMiddle('testing'));
+console.log(getMiddle('lokomotywa'));
+console.log(getMiddle('bob'));
+
+// another solution:
+
+function getMiddle2(s) {
+    return s.substr(Math.ceil(s.length / 2 - 1), s.length % 2 === 0 ? 2 : 1);
+}
+
+console.log(getMiddle2('test'));
+console.log(getMiddle2('tester'));
+console.log(getMiddle2('testing'));
+console.log(getMiddle2('lokomotywa'));
+console.log(getMiddle2('bob'));
