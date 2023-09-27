@@ -533,6 +533,7 @@ function areYouPlayingBanjo(name) {
 
 // ===============================================================
 
+
 function getMiddle(s) {
     //Code goes here!
     if (s.length % 2 === 0) {
@@ -548,7 +549,7 @@ console.log(getMiddle('testing'));
 console.log(getMiddle('lokomotywa'));
 console.log(getMiddle('bob'));
 
-// another solution:
+// another solutio (nice):
 
 function getMiddle2(s) {
     return s.substr(Math.ceil(s.length / 2 - 1), s.length % 2 === 0 ? 2 : 1);
@@ -559,3 +560,49 @@ console.log(getMiddle2('tester'));
 console.log(getMiddle2('testing'));
 console.log(getMiddle2('lokomotywa'));
 console.log(getMiddle2('bob'));
+
+// ==============================================================
+
+function squareSum(numbers) {
+    let sum = 0;
+    numbers.forEach(number => {
+        sum += Math.pow(number, 2);
+    });
+    return sum;
+}
+
+// another solution
+
+function squareSum2(numbers) {
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        sum += Math.pow(numbers[i], 2);
+    } return sum;
+}
+
+// another solution:
+
+function squareSum3(numbers) {
+    return numbers.reduce((sum, num) => {
+        return (num * num) + sum
+    }, 0)
+}
+
+// bad solution!!!
+
+// function squareSum3(numbers) {
+//     return numbers.reduce((num, sum) => {
+//         return (num * num) + sum
+//     }, 0)
+// }
+
+console.log(squareSum([1, 2]));
+console.log(squareSum([0, 3, 4, 5]));
+console.log(squareSum2([1, 2]));
+console.log(squareSum2([0, 3, 4, 5]));
+console.log(squareSum3([1, 2]));
+console.log(squareSum3([0, 3, 4, 5]));
+
+// ===============================================================
+
+// Refactored greeting!
