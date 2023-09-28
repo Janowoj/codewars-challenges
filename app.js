@@ -631,13 +631,7 @@ String.prototype.toJadenCase = function () {
 
 // ===============================================================
 
-// function Person(myName) {
-//     this.name = myName;
 
-//     function greet (yourName) {
-//       return `Hello ${yourName}, my name is ${this.name}`;
-//     } 
-//   }
 
 function Person(myName) {
     this.name = myName;
@@ -649,3 +643,95 @@ function Person(myName) {
 let joe = new Person('Joe');
 
 console.log(joe.greet('Kate'));
+
+// another solution:
+
+function Person2(myName) {
+    this.name = myName;
+}
+
+Person2.prototype.greet = function (yourName) {
+    return `Hello ${yourName}, my name is ${this.name}`;
+}
+
+// another solution:
+
+class Person3 {
+    constructor(myName) {
+        this.name = myName;
+    }
+    greet(yourName) {
+        return `Hello ${yourName}, my name is ${this.name}`;
+    }
+}
+
+// ===============================================================
+
+function duplicateEncode(word) {
+    // ...
+    return word
+        .toLowerCase()
+        .split('')
+        .map(char => {
+            if (word.indexOf(char) === word.lastIndexOf(char)) {
+                return '(';
+            } else return ')';
+        })
+        .join('');
+}
+
+// function duplicateEncode(word) {
+//     // ...
+//     return word
+//         .toLowerCase()
+//         .split('')
+//         .map(char => {
+//             word.indexOf(char)
+//         });
+// }
+
+
+// function duplicateEncode(word) {
+//     // ...
+//     return word
+//         .toLowerCase()
+//         .split('')
+//         .map(char => word.indexOf(char) === word.lastIndexOf(char) ? '(' : ')')
+//         .join('');
+// }
+
+
+// function duplicateEncode(word) {
+//     // ...
+//     return word
+//         .toLowerCase()
+//         .split("")
+//         .sort()
+//         .join("")
+//         .match(/(.)\1+/g);
+// }
+
+
+
+console.log(duplicateEncode("din"));
+console.log(duplicateEncode("recede"));
+console.log(duplicateEncode("ecede"));
+console.log(duplicateEncode("Success"));
+console.log(duplicateEncode("(( @"));
+console.log(duplicateEncode("Supralapsarian")); //')()))()))))()('
+// not '(()))())())()('
+console.log(duplicateEncode("Supralapssarian")); //')()))()'
+
+const str1 = "afewreociwddwjej";
+const repeatedChar = (str1) => {
+    const result = [];
+    const strArr = str1.toLowerCase().split("").sort().join("").match(/(.)\1+/g);
+
+    if (strArr != null) {
+        strArr.forEach((elem) => {
+            result.push(elem[0]);
+        });
+    }
+    return result;
+}
+console.log(...repeatedChar(str1));
