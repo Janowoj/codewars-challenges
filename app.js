@@ -628,3 +628,24 @@ String.prototype.toJadenCase = function () {
         .map(i => i.replace(i[0], i[0].toUpperCase()))
         .join(" ");
 };
+
+// ===============================================================
+
+// function Person(myName) {
+//     this.name = myName;
+
+//     function greet (yourName) {
+//       return `Hello ${yourName}, my name is ${this.name}`;
+//     } 
+//   }
+
+function Person(myName) {
+    this.name = myName;
+    this.greet = function (yourName) {
+        return `Hello ${yourName}, my name is ${this.name}`;
+    }
+}
+
+let joe = new Person('Joe');
+
+console.log(joe.greet('Kate'));
