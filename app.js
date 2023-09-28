@@ -735,3 +735,39 @@ const repeatedChar = (str1) => {
     return result;
 }
 console.log(...repeatedChar(str1));
+
+// ===============================================================
+
+//Remove First and Last Character
+
+function removeChar(str) {
+    //You got this!
+    return str.substring(1, str.length - 1)
+};
+
+//    another solution:
+
+function removeChar2(str) {
+    //You got this!
+    return str.slice(1, -1)
+};
+
+// ===============================================================
+
+// You only need one - Beginner
+
+const check = (a, x) => a.includes(x);
+
+// another solution:
+
+const check2 = (a, x) => a.indexOf(x) !== -1;
+
+// another solution:
+
+const check3 = (a, x) => a.some(item => item === x);
+
+// ===============================================================
+
+// Convert a Number to a String!
+
+numberToString = (num) => num.toString();
