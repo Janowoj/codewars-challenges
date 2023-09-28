@@ -606,3 +606,25 @@ console.log(squareSum3([0, 3, 4, 5]));
 // ===============================================================
 
 // Refactored greeting!
+
+// ===============================================================
+
+// Jaden Casing Strings
+
+// ===============================================================
+
+String.prototype.toJadenCase = function () {
+    //...
+    return this.split(' ').map(item => item[0].toUpperCase() + item.substring(1)).join(' ');
+};
+
+console.log("How can mirrors be real if our eyes aren't real".toJadenCase());
+
+//   another solution with replace() method:
+
+String.prototype.toJadenCase = function () {
+    return this
+        .split(" ")
+        .map(i => i.replace(i[0], i[0].toUpperCase()))
+        .join(" ");
+};
