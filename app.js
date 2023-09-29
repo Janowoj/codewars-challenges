@@ -930,3 +930,12 @@ function isIsogram3(str) {
 console.log(isIsogram3("Dermatoglyphics"));
 console.log(isIsogram3("isogram"));
 console.log(isIsogram3("aba"));
+
+// ===============================================================
+
+function digitize(n) {
+    //code here
+    return n.toString().split('').reverse().map(item => parseInt(item));
+}
+
+console.log(digitize(12345));
