@@ -821,4 +821,71 @@ const countSheep = function (num) {
 console.log(countSheep(1));
 console.log(countSheep(3));
 
+// another solution:
 
+const countSheep2 = function (num) {
+    //your code here
+    let str = '';
+    for (let i = 1; i <= num; i++) {
+        str += `${i} sheep...`;
+    } return str;
+}
+
+// ===============================================================
+
+function alphabetPosition(text) {
+    let arr = text.split("");
+    let alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let res = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < alph.length; j++) {
+            if (arr[i].toLowerCase() === alph[j].toLowerCase()) {
+                res.push(j + 1);
+            }
+        }
+    } return res.join(' ');
+}
+
+console.log(alphabetPosition("The sunset sets at twelve o' clock."));
+
+// another solution:
+
+function alphabetPosition2(text) {
+    const letters = 'abcdefghijklmnopqrstuvwxyz';
+
+    return text.toLowerCase()
+        .split('')
+        .filter(t => letters.indexOf(t) > -1)
+        .map(t => letters.indexOf(t) + 1 || '')
+        .join(' ');
+}
+
+console.log(alphabetPosition2("The sunset sets at twelve o' clock."));
+
+// another solution:
+
+function alphabetPosition3(text) {
+
+    var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+
+    return text.toLowerCase().replace(/[^a-z]/g, '').split('').map(x => alphabet.indexOf(x) + 1).join(' ');
+}
+
+console.log(alphabetPosition3("The sunset sets at twelve o' clock."));
+
+// another solution:
+
+function alphabetPosition4(text) {
+    var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    return text.toLowerCase().split('')
+        .filter(letter => {
+            let index = alphabet.indexOf(letter);
+            return index > -1;
+        })
+        .map(letter => alphabet.indexOf(letter) + 1)
+        .join(' ')
+}
+
+console.log(alphabetPosition4("The sunset sets at twelve o' clock."));
