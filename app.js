@@ -833,6 +833,8 @@ const countSheep2 = function (num) {
 
 // ===============================================================
 
+// my solution:
+
 function alphabetPosition(text) {
     let arr = text.split("");
     let alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -889,3 +891,42 @@ function alphabetPosition4(text) {
 }
 
 console.log(alphabetPosition4("The sunset sets at twelve o' clock."));
+
+// ===============================================================
+
+function isIsogram(str) {
+    //...
+    let arr = str.toLowerCase()
+        .split('')
+        .sort();
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === arr[i + 1]) {
+            return false;
+            break;
+        }
+    } return true;
+}
+
+console.log(isIsogram("Dermatoglyphics"));
+console.log(isIsogram("isogram"));
+console.log(isIsogram("aba"));
+
+// another solution with new Set() method and size property:
+
+function isIsogram2(str) {
+    return new Set(str.toUpperCase()).size == str.length;
+}
+
+console.log(isIsogram2("Dermatoglyphics"));
+console.log(isIsogram2("isogram"));
+
+// another solution with regex:
+
+function isIsogram3(str) {
+    return !/(\w).*\1/i.test(str)
+}
+
+console.log(isIsogram3("Dermatoglyphics"));
+console.log(isIsogram3("isogram"));
+console.log(isIsogram3("aba"));
