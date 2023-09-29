@@ -796,4 +796,29 @@ const binaryArrayToNumber = arr => {
 console.log(binaryArrayToNumber([0, 0, 0, 1]));
 console.log(binaryArrayToNumber([0, 0, 1, 1]));
 
+// another solution:
+
+function binaryArrayToNumber2(arr) {
+    return arr.reduce((a, b) => a << 1 | b);
+}
+
+//   another solution:
+
+const binaryArrayToNumber3 = arr => {
+    return arr.reduce((total, cur) => (total = total * 2 + cur), 0);
+}
+
+// ===============================================================
+
+const countSheep = function (num) {
+    //your code here
+    let arr = [];
+    for (let i = 1; i <= num; i++) {
+        arr.push(`${i} sheep...`);
+    } return arr.join('');
+}
+
+console.log(countSheep(1));
+console.log(countSheep(3));
+
 
