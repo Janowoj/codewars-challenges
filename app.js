@@ -939,3 +939,35 @@ function digitize(n) {
 }
 
 console.log(digitize(12345));
+
+// another solution:
+
+function digitize2(n) {
+    return String(n).split('').map(Number).reverse()
+}
+
+console.log(digitize2(12345));
+
+// ===============================================================
+
+function towerBuilder(nFloors) {
+    // build here
+    let tower = [];
+    for (let i = 1; i <= nFloors; i++) {
+        tower.push(
+            " ".repeat(nFloors - i) + "*".repeat(i * 2 - 1) + " ".repeat(nFloors - i)
+        )
+    } return tower;
+}
+
+console.log(towerBuilder(3));
+console.log(towerBuilder(6));
+
+// another solution:
+
+function towerBuilder2(n) {
+    return [...Array(n)].map((_, i) => " ".repeat(n - 1 - i) + "*".repeat(i * 2 + 1) + " ".repeat(n - 1 - i))
+}
+
+console.log(towerBuilder2(3));
+console.log(towerBuilder2(6));
