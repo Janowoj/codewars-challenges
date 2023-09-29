@@ -785,3 +785,15 @@ function past(h, m, s) {
 }
 
 console.log(past(0, 1, 1));
+
+// ===============================================================
+
+const binaryArrayToNumber = arr => {
+    // your code
+    return parseInt(arr.join(''), 2);
+};
+
+console.log(binaryArrayToNumber([0, 0, 0, 1]));
+console.log(binaryArrayToNumber([0, 0, 1, 1]));
+
+
