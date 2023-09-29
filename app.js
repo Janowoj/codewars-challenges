@@ -771,3 +771,17 @@ const check3 = (a, x) => a.some(item => item === x);
 // Convert a Number to a String!
 
 numberToString = (num) => num.toString();
+
+// another solution:
+
+function numberToString(num) {
+    return '' + num;
+}
+
+// ===============================================================
+
+function past(h, m, s) {
+    return (h * 3600 + m * 60 + s) * 1000;
+}
+
+console.log(past(0, 1, 1));
