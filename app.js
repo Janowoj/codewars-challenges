@@ -971,3 +971,36 @@ function towerBuilder2(n) {
 
 console.log(towerBuilder2(3));
 console.log(towerBuilder2(6));
+
+// ===============================================================
+
+function disemvowel(str) {
+    return str.match(/[aeiou]/gi) ? str.replace(/[aeiou]/gi, '') : str;
+}
+
+console.log(disemvowel("This website is for losers LOL!"));
+
+// another solution:
+
+function disemvowel2(str) {
+    return str.replace(/[aeiou]/gi, '');
+}
+
+console.log(disemvowel2("This website is for losers LOL!"));
+
+//   another solution:
+
+function disemvowel3(str) {
+    let vowels = ['a', 'e', 'i', 'o', 'u'];
+    return str
+        .split('')
+        .filter(elem => {
+            return vowels.indexOf(elem.toLowerCase()) === -1
+        })
+        .join('');
+}
+
+console.log(disemvowel3("This website is for losers LOL!"));
+
+// ===============================================================
+
