@@ -1033,3 +1033,36 @@ function sum2(numbers) {
 console.log(sum2([1, 5.2, 4, 0, -1]));
 console.log(sum2([]));
 console.log(sum2([-2.398]));
+
+// ===============================================================
+
+function countSheeps(sheep) {
+    // TODO
+    return sheep
+        .filter(elem => {
+            return elem === true
+        })
+        .length;
+}
+
+console.log(countSheeps([true, true, true, false,
+    true, true, true, true,
+    true, false, true, false,
+    true, false, false, true,
+    true, true, true, true,
+    false, false, true, true]));
+
+// another solution:
+
+function countSheeps2(arrayOfSheep) {
+    return arrayOfSheep.filter(Boolean).length;
+}
+
+console.log(countSheeps2([true, true, true, false,
+    true, true, true, true,
+    true, false, true, false,
+    true, false, false, true,
+    true, true, true, true,
+    false, false, true, true]));
+
+// ===============================================================
