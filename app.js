@@ -1004,3 +1004,32 @@ console.log(disemvowel3("This website is for losers LOL!"));
 
 // ===============================================================
 
+// Sum Numbers
+function sum(numbers) {
+    "use strict";
+    if (numbers.some(number => {
+        return typeof number === 'number'
+    })) {
+        let sum = 0;
+        for (let i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        } return sum;
+    } else {
+        return 0;
+    }
+}
+
+console.log(sum([1, 5.2, 4, 0, -1]));
+console.log(sum([]));
+console.log(sum([-2.398]));
+
+// another solution:
+
+function sum2(numbers) {
+    return numbers.reduce((a, b) => a + b, 0);
+}
+
+
+console.log(sum2([1, 5.2, 4, 0, -1]));
+console.log(sum2([]));
+console.log(sum2([-2.398]));
