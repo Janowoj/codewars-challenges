@@ -1066,3 +1066,54 @@ console.log(countSheeps2([true, true, true, false,
     false, false, true, true]));
 
 // ===============================================================
+
+// function tribonacci(signature, n) {
+//     //your code here
+//     for (let i = 1; i <= (n - signature.length); i++) {
+//         signature.push(signature[length - 1] + signature[length - 2] + signature[length - 3]);
+//     } return signature;
+// }
+
+function tribonacci(signature, n) {
+    //your code here
+    if (n !== 0 && n !== 1 && n !== 2) {
+        for (let i = 1; i <= (n - 3); i++) {
+            signature.push(signature.slice(-3).reduce((a, b) => a + b));
+        } return signature;
+    } else if (n === 1 || n === 2) {
+        return signature.slice(0, n);
+    } else return [];
+}
+
+console.log(tribonacci([1, 1, 1], 10)); // [1,1,1,3,5,9,17,31,57,105] 
+console.log(tribonacci([0, 0, 1], 10)); // [0,0,1,1,2,4,7,13,24,44]     
+console.log(tribonacci([0, 1, 1], 10)); // [0,1,1,2,4,7,13,24,44,81]    
+console.log(tribonacci([1, 0, 0], 10)); // [1,0,0,1,1,2,4,7,13,24]      
+console.log(tribonacci([0, 0, 0], 10)); // [0,0,0,0,0,0,0,0,0,0]        
+console.log(tribonacci([1, 2, 3], 10)); // [1,2,3,6,11,20,37,68,125,230]
+console.log(tribonacci([3, 2, 1], 10)); // [3,2,1,6,9,16,31,56,103,190] 
+console.log(tribonacci([1, 1, 1], 1));
+console.log(tribonacci([1, 3, 2], 6));
+console.log(tribonacci([1, 3, 2], 0));
+
+// another solution:
+
+function tribonacci2(signature, n) {
+    for (var i = 0; i < n - 3; i++) { // iterate n times
+        signature.push(signature[i] + signature[i + 1] + signature[i + 2]); // add last 3 array items and push to trib
+    }
+    return signature.slice(0, n); //return trib - length of n
+}
+
+console.log(tribonacci2([1, 1, 1], 10)); // [1,1,1,3,5,9,17,31,57,105] 
+console.log(tribonacci2([0, 0, 1], 10)); // [0,0,1,1,2,4,7,13,24,44]     
+console.log(tribonacci2([0, 1, 1], 10)); // [0,1,1,2,4,7,13,24,44,81]    
+console.log(tribonacci2([1, 0, 0], 10)); // [1,0,0,1,1,2,4,7,13,24]      
+console.log(tribonacci2([0, 0, 0], 10)); // [0,0,0,0,0,0,0,0,0,0]        
+console.log(tribonacci2([1, 2, 3], 10)); // [1,2,3,6,11,20,37,68,125,230]
+console.log(tribonacci2([3, 2, 1], 10)); // [3,2,1,6,9,16,31,56,103,190] 
+console.log(tribonacci2([1, 1, 1], 1));
+console.log(tribonacci2([1, 3, 2], 6));
+console.log(tribonacci2([1, 3, 2], 0));
+console.log(tribonacci2([1, 3, 2], 2));
+
