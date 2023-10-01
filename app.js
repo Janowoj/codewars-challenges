@@ -1117,3 +1117,10 @@ console.log(tribonacci2([1, 3, 2], 6));
 console.log(tribonacci2([1, 3, 2], 0));
 console.log(tribonacci2([1, 3, 2], 2));
 
+// ===============================================================
+
+function betterThanAverage(classPoints, yourPoints) {
+    if (classPoints.reduce((a, b) => a + b, 0) / classPoints.length < yourPoints) {
+        return true;
+    } else return false;
+}
