@@ -1157,3 +1157,40 @@ function sortArray(array) {
 console.log(sortArray([5, 3, 2, 8, 1, 4]));
 console.log(sortArray([5, 3, 1, 8, 0]));
 console.log(sortArray([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]));
+
+// another solution:
+
+function sortArray2(array) {
+    const odd = array.filter((x) => x % 2).sort((a, b) => a - b);
+    return array.map((x) => (x % 2 ? odd.shift() : x));
+}
+
+// ===============================================================
+
+function countBy(x, n) {
+    let arr = [];
+
+    for (let i = 1; i <= n; i++) {
+        arr.push(x * i)
+    }
+
+    return arr;
+}
+
+console.log(countBy(1, 10));
+console.log(countBy(2, 5));
+
+// another solution:
+
+const countBy2 = (x, n) => Array.from({ length: n }, (v, k) => (k + 1) * x);
+
+console.log(countBy2(1, 10));
+console.log(countBy2(2, 5));
+
+// another solution:
+
+const countBy3 = (x, n) =>
+    [...Array(n)].map((_, idx) => ++idx * x);
+
+console.log(countBy3(1, 10));
+console.log(countBy3(2, 5));
