@@ -1124,3 +1124,36 @@ function betterThanAverage(classPoints, yourPoints) {
         return true;
     } else return false;
 }
+
+console.log(betterThanAverage([2, 3], 5));
+console.log(betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75));
+
+// another solution (simpler):
+
+function betterThanAverage2(classPoints, yourPoints) {
+    return yourPoints > classPoints.reduce((a, b) => a + b, 0) / classPoints.length;
+}
+
+// ===============================================================
+
+// function sortArray(array) {
+//     // Return a sorted array.
+//     return array.map(num => {
+//         if (num % 2 !== 0) {
+//             array.sort((a, b) => a - b)
+//         } else return num;
+//     })
+// }
+function sortArray(array) {
+    // Return a sorted array.
+    let odds = array.filter(num => num % 2 !== 0).sort((a, b) => (a - b));
+    return array.map(num => {
+        if (num % 2 !== 0) {
+            return odds.shift();
+        } else return num;
+    });
+}
+
+console.log(sortArray([5, 3, 2, 8, 1, 4]));
+console.log(sortArray([5, 3, 1, 8, 0]));
+console.log(sortArray([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]));
