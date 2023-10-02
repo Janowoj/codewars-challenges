@@ -1226,3 +1226,24 @@ console.log(per(10));
 console.log(per(365));
 console.log(per(28));
 console.log(per(277777788888899));
+console.log('-------------------');
+
+// another solution:
+
+function per2(n) {
+    let res = []
+    while (n.toString().length > 1) {
+        n = n.toString().split('').reduce(
+            (p, c) => p * c
+        )
+        res.push(n)
+    }
+    return res
+}
+
+
+console.log(per2(1));
+console.log(per2(10));
+console.log(per2(365));
+console.log(per2(28));
+console.log(per2(277777788888899));
