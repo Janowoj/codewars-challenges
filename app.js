@@ -1194,3 +1194,35 @@ const countBy3 = (x, n) =>
 
 console.log(countBy3(1, 10));
 console.log(countBy3(2, 5));
+console.log('===============');
+
+
+// trwałość mnożnika (multiplication persistence):
+
+function per(n) {
+
+    if (n.toString().length === 1) {
+        return [];
+    }
+
+    let numArr = n.toString().split('').map((num) => {
+        return parseInt(num)
+    });
+
+    let arr = [];
+
+    while (numArr.length > 1) {
+        let result = numArr.reduce((a, b) => a * b);
+        arr.push(result);
+        numArr = result.toString().split('').map((num) => {
+            return parseInt(num)
+        });
+    } return arr;
+
+}
+
+console.log(per(1));
+console.log(per(10));
+console.log(per(365));
+console.log(per(28));
+console.log(per(277777788888899));
