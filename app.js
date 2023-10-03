@@ -1221,6 +1221,7 @@ function per(n) {
 
 }
 
+console.log('function per');
 console.log(per(1));
 console.log(per(10));
 console.log(per(365));
@@ -1228,7 +1229,7 @@ console.log(per(28));
 console.log(per(277777788888899));
 console.log('-------------------');
 
-// another solution:
+// another solution (simpler):
 
 function per2(n) {
     let res = []
@@ -1242,8 +1243,46 @@ function per2(n) {
 }
 
 
+console.log('function per2');
 console.log(per2(1));
 console.log(per2(10));
 console.log(per2(365));
 console.log(per2(28));
 console.log(per2(277777788888899));
+console.log('===============');
+
+
+// ===============================================================
+
+function order(words) {
+    // ...
+    // let nums = words
+    //     .match(/[\d]/g)
+    //     .sort((a, b) => a - b);
+    let newWords = words.split(' ');
+    let arr = [];
+
+
+    for (let i = 1; i <= newWords.length; i++) {
+        arr.push(newWords.find((word) => word.includes(i)));
+    } return arr.join(' ');
+}
+
+
+console.log('-----function order(words)------');
+console.log(order("is2 Thi1s T4est 3a"));
+console.log(order("4of Fo1r pe6ople g3ood th5e the2"));
+
+// another solution:
+
+function order2(words) {
+    // ...
+    return words
+        .split(' ')
+        .sort((a, b) => a.match(/\d/) - b.match(/\d/))
+        .join(' ');
+}
+
+console.log('--------function order2(words)--------');
+console.log(order2("is2 Thi1s T4est 3a"));
+console.log(order2("4of Fo1r pe6ople g3ood th5e the2"));
