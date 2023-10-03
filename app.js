@@ -1286,3 +1286,17 @@ function order2(words) {
 console.log('--------function order2(words)--------');
 console.log(order2("is2 Thi1s T4est 3a"));
 console.log(order2("4of Fo1r pe6ople g3ood th5e the2"));
+
+// ================================================
+
+// Boiled eggs function;)
+
+function cookingTime(eggs) {
+    // TODO
+    return Math.ceil(eggs / 8) * 5;
+};
+
+
+console.log(cookingTime(1));
+console.log(cookingTime(10));
+console.log(cookingTime(100));
