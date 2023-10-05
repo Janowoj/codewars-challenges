@@ -1300,3 +1300,91 @@ function cookingTime(eggs) {
 console.log(cookingTime(1));
 console.log(cookingTime(10));
 console.log(cookingTime(100));
+
+// ====================================================
+
+function smash(words) {
+    return words.join(' ').trim();
+};
+
+console.log(smash(['hello', 'world', 'this', 'is', 'great']));
+console.log(smash(["this", "is", "a", "really", "long", "sentence "]));
+
+// ========================================================
+
+const rps = (p1, p2) => {
+    if (p1 === p2) {
+        return "Draw!";
+    } else if (p1 === 'paper' && p2 === "rock") {
+        return "Player 1 won!"
+    } else if (p1 === 'rock' && p2 === "scissors") {
+        return "Player 1 won!"
+    } else if (p1 === 'scissors' && p2 === "paper") {
+        return "Player 1 won!"
+    } else return "Player 2 won!";
+}
+
+console.log('------This is Rock Paper Scissors function--------');
+console.log(rps("scissors", "paper"));
+console.log(rps("paper", "scissors"));
+console.log(rps("paper", "rock"));
+console.log(rps("rock", "rock"));
+
+// another solution:
+
+const rps2 = (p1, p2) => {
+    if (p1 === p2) return "Draw!";
+    var rules = { rock: "scissors", paper: "rock", scissors: "paper" };
+    if (p2 === rules[p1]) {
+        return "Player 1 won!";
+    }
+    else {
+        return "Player 2 won!";
+    }
+};
+
+console.log('------This is Rock Paper Scissors function--------');
+console.log(rps2("scissors", "paper"));
+console.log(rps2("paper", "scissors"));
+console.log(rps2("paper", "rock"));
+console.log(rps2("rock", "rock"));
+
+// another solution:
+
+const rps3 = (p1, p2) => {
+    if (p1 === p2) {
+        return 'Draw!'
+    };
+    return `Player ${/rockscissors|scissorspaper|paperrock/.test(p1 + p2) ? 1 : 2} won!`;
+}
+
+console.log('------This is Rock Paper Scissors function--------');
+console.log(rps3("scissors", "paper"));
+console.log(rps3("paper", "scissors"));
+console.log(rps3("paper", "rock"));
+
+// another solution:
+
+const rps4 = (p1, p2) => {
+    switch (p1 + p2) {
+        case "paperpaper":
+        case "scissorsscissors":
+        case "rockrock":
+            return "Draw!";
+        case "rockscissors":
+        case "scissorspaper":
+        case "paperrock":
+            return "Player 1 won!";
+        default:
+            return "Player 2 won!";
+    }
+};
+
+console.log('------This is Rock Paper Scissors function--------');
+console.log(rps4("scissors", "paper"));
+console.log(rps4("paper", "scissors"));
+console.log(rps4("paper", "rock"));
+console.log(rps4("rock", "rock"));
+
+// ========================================================
+
