@@ -1388,3 +1388,48 @@ console.log(rps4("rock", "rock"));
 
 // ========================================================
 
+function domainName(url) {
+
+    let urlPattern = /(https?:\/\/www\.|https?:\/\/)?([-?a-zA-Z0-9]{1,})(\.[a-zA-Z0-9]{2,})(\.[a-zA-Z0-9]{2,})?/;
+    let match = url.match(urlPattern);
+
+    if (match[2] === 'www') {
+        return match[3].substring(1);
+    } else return match[2]
+}
+
+console.log(domainName("http://google.com"));
+console.log(domainName("https://github.com/carbonfive/raygun"));
+console.log(domainName("http://www.zombie-bites.com"));
+console.log(domainName('https://r2crk-d4banw-9ixdndlhfuow8v.fr'));
+console.log(domainName('http://www.y6wot-1j3bh5jalza7-t.fr/img/'));
+console.log(domainName('http://6057-eta6dvy0-6op1.pro/img/'));
+
+// another solution:
+
+function domainName2(url) {
+    url = url.replace("https://", '');
+    url = url.replace("http://", '');
+    url = url.replace("www.", '');
+    return url.split('.')[0];
+};
+
+console.log(domainName2("http://google.com"));
+console.log(domainName2("https://github.com/carbonfive/raygun"));
+console.log(domainName2("http://www.zombie-bites.com"));
+console.log(domainName2('https://r2crk-d4banw-9ixdndlhfuow8v.fr'));
+console.log(domainName2('http://www.y6wot-1j3bh5jalza7-t.fr/img/'));
+console.log(domainName2('http://6057-eta6dvy0-6op1.pro/img/'));
+
+//  another solution:
+
+function domainName3(url) {
+    return url.match(/(?:http(?:s)?:\/\/)?(?:w{3}\.)?([^\.]+)/i)[1];
+}
+
+console.log(domainName3("http://google.com"));
+console.log(domainName3("https://github.com/carbonfive/raygun"));
+console.log(domainName3("http://www.zombie-bites.com"));
+console.log(domainName3('https://r2crk-d4banw-9ixdndlhfuow8v.fr'));
+console.log(domainName3('http://www.y6wot-1j3bh5jalza7-t.fr/img/'));
+console.log(domainName3('http://6057-eta6dvy0-6op1.pro/img/'));
