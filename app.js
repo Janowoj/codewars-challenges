@@ -1398,6 +1398,7 @@ function domainName(url) {
     } else return match[2]
 }
 
+console.log('-------------domainName(url)--------------');
 console.log(domainName("http://google.com"));
 console.log(domainName("https://github.com/carbonfive/raygun"));
 console.log(domainName("http://www.zombie-bites.com"));
@@ -1414,6 +1415,7 @@ function domainName2(url) {
     return url.split('.')[0];
 };
 
+console.log('-------------domainName2(url)--------------');
 console.log(domainName2("http://google.com"));
 console.log(domainName2("https://github.com/carbonfive/raygun"));
 console.log(domainName2("http://www.zombie-bites.com"));
@@ -1427,9 +1429,61 @@ function domainName3(url) {
     return url.match(/(?:http(?:s)?:\/\/)?(?:w{3}\.)?([^\.]+)/i)[1];
 }
 
+console.log('-------------domainName3(url)--------------');
 console.log(domainName3("http://google.com"));
 console.log(domainName3("https://github.com/carbonfive/raygun"));
 console.log(domainName3("http://www.zombie-bites.com"));
 console.log(domainName3('https://r2crk-d4banw-9ixdndlhfuow8v.fr'));
 console.log(domainName3('http://www.y6wot-1j3bh5jalza7-t.fr/img/'));
 console.log(domainName3('http://6057-eta6dvy0-6op1.pro/img/'));
+
+// ========================================================
+
+function sumNums(x) {
+    return x.filter(
+        element => typeof element === 'number'
+    ).reduce((a, b) => (a + b));
+
+}
+
+console.log(sumNums([9, 3, '7', '3']));
+console.log(sumNums(['5', '0', 9, 3, 2, 1, '9', 6, 7]));
+
+// ========================================================
+
+function sumMix(x) {
+    return x.map(num => {
+        if (typeof num === 'string') {
+            return parseInt(num);
+        } else return num;
+    })
+        .reduce((a, b) => a + b);
+}
+
+console.log('-------------sumMix(num)--------------');
+console.log(sumMix([9, 3, '7', '3']));
+console.log(sumMix(['5', '0', 9, 3, 2, 1, '9', 6, 7]));
+
+// another solution
+
+function sumMix2(x) {
+    return x.map(a => +a).reduce((a, b) => a + b);
+}
+
+console.log(sumMix2([9, 3, '7', '3']));
+console.log(sumMix2(['5', '0', 9, 3, 2, 1, '9', 6, 7]));
+
+// another solution
+
+function sumMix3(x) {
+    let result = 0;
+    for (let n of x) {
+        result += parseInt(n);
+    }
+    return result;
+}
+
+console.log(sumMix3([9, 3, '7', '3']));
+console.log(sumMix3(['5', '0', 9, 3, 2, 1, '9', 6, 7]));
+
+// ========================================================
