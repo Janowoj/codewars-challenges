@@ -1487,3 +1487,33 @@ console.log(sumMix3([9, 3, '7', '3']));
 console.log(sumMix3(['5', '0', 9, 3, 2, 1, '9', 6, 7]));
 
 // ========================================================
+
+function zombieShootout(zombies, range, ammo) {
+    if (ammo < zombies && (range / 0.5) > ammo) {
+        return `You shot ${ammo} zombies before being eaten: ran out of ammo.`
+    }
+    else if ((range / 0.5) < zombies && (range / 0.5) <= ammo) {
+        return `You shot ${range / 0.5} zombies before being eaten: overwhelmed.`
+    } else return `You shot all ${zombies} zombies.`
+}
+
+console.log(zombieShootout(3, 10, 10));
+console.log(zombieShootout(100, 8, 200));
+console.log(zombieShootout(50, 10, 8));
+console.log(zombieShootout(77, 10, 32));
+console.log(zombieShootout(30, 10, 21));
+
+// ========================================================
+
+const zombie_shootout = (zombies, range, ammo, zCount = 0) => {
+    if (!zombies) return `You shot all ${zCount} zombies.`
+    if (!range) return `You shot ${zCount} zombies before being eaten: overwhelmed.`
+    if (!ammo) return `You shot ${zCount} zombies before being eaten: ran out of ammo.`
+    return zombie_shootout(zombies - 1, range - 0.5, ammo - 1, zCount + 1);
+};
+
+console.log(zombie_shootout(3, 10, 10));
+console.log(zombie_shootout(100, 8, 200));
+console.log(zombie_shootout(50, 10, 8));
+console.log(zombie_shootout(77, 10, 32));
+console.log(zombie_shootout(30, 10, 21));
