@@ -1548,3 +1548,35 @@ console.log(compSame([], [18, 1, 2]));
 console.log(compSame([], null));
 console.log(compSame([1], {}));
 console.log(compSame([], []));
+
+// another solution:
+
+function comp2(array1, array2) {
+    if (array1 == null || array2 == null) return false;
+    array1.sort((a, b) => a - b); array2.sort((a, b) => a - b);
+    return array1.map(v => v * v).every((v, i) => v == array2[i]);
+}
+
+console.log(comp2([121, 11, 19, 161, 19], [361, 25921, 121, 14641, 361]));
+console.log(comp2([7, 5, 9, 8, 2, 5, 10, 1, 0, 0, 1], [1, 1, 0, 64, 81, 25, 49, 1, 100, 4, 25]));
+console.log(comp2([2, 1, 3], [18, 1, 2]));
+console.log(comp2([], [18, 1, 2]));
+console.log(comp2([], null));
+console.log(comp2([1], {}));
+console.log(comp2([], []));
+
+// another solution:
+
+function comp3(a, b) {
+    return !!a && !!b && a.map(x => x * x).sort().join() == b.sort().join();
+}
+
+console.log(comp3([121, 11, 19, 161, 19], [361, 25921, 121, 14641, 361]));
+console.log(comp3([7, 5, 9, 8, 2, 5, 10, 1, 0, 0, 1], [1, 1, 0, 64, 81, 25, 49, 1, 100, 4, 25]));
+console.log(comp3([2, 1, 3], [18, 1, 2]));
+console.log(comp3([], [18, 1, 2]));
+console.log(comp3([], null));
+console.log(comp3([1], {}));
+console.log(comp3([], []));
+
+// ========================================================
