@@ -1503,7 +1503,7 @@ console.log(zombieShootout(50, 10, 8));
 console.log(zombieShootout(77, 10, 32));
 console.log(zombieShootout(30, 10, 21));
 
-// ========================================================
+// another solution:
 
 const zombie_shootout = (zombies, range, ammo, zCount = 0) => {
     if (!zombies) return `You shot all ${zCount} zombies.`
@@ -1517,3 +1517,34 @@ console.log(zombie_shootout(100, 8, 200));
 console.log(zombie_shootout(50, 10, 8));
 console.log(zombie_shootout(77, 10, 32));
 console.log(zombie_shootout(30, 10, 21));
+
+// ========================================================
+
+function compSame(array1, array2) {
+    if (array1 === null || array2 === null) {
+        return false;
+    } else if (array1.length === 0 && array2.length === 0) {
+        return true;
+    } else if (array1.length === 0 || array2.length === 0) {
+        return false;
+    } else if (array1.length !== array2.length) {
+        return false;
+    } else {
+        let arr1 = array1.sort((a, b) => a - b).map(item => Math.pow(item, 2));
+        let arr2 = array2.sort((a, b) => a - b).map(item => item);
+        // return [...arr1, ...arr2];
+        if (
+            arr1.length === arr2.length &&
+            arr1.every((element, index) => element === arr2[index])) {
+            return true;
+        } else return false;
+    }
+}
+
+console.log(compSame([121, 11, 19, 161, 19], [361, 25921, 121, 14641, 361]));
+console.log(compSame([7, 5, 9, 8, 2, 5, 10, 1, 0, 0, 1], [1, 1, 0, 64, 81, 25, 49, 1, 100, 4, 25]));
+console.log(compSame([2, 1, 3], [18, 1, 2]));
+console.log(compSame([], [18, 1, 2]));
+console.log(compSame([], null));
+console.log(compSame([1], {}));
+console.log(compSame([], []));
