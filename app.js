@@ -1603,3 +1603,52 @@ var summation2 = function (num) {
 console.log(summation2(1));
 console.log(summation2(8));
 
+// ========================================================
+
+function wave(str) {
+
+    let arr = [];
+
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] !== " ") {
+            arr.push(str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1));
+        }
+    } return arr;
+}
+
+console.log('----------function wave()----------------');
+console.log(wave("hello"));
+console.log(wave("hello world"));
+
+// this solution doesn't work with 'two words' string (when there is a double letter in the string):
+
+function waveFalsy(str) {
+
+    let arr = [];
+
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] !== " ") {
+            arr.push(str.replace(str[i], str[i].toUpperCase()));
+        }
+    } return arr;
+}
+
+
+// another solution:
+
+function wave2(str) {
+    let result = [];
+
+    str.split("").forEach((char, index) => {
+        if (/[a-z]/.test(char)) {
+            result.push(str.slice(0, index) + char.toUpperCase() + str.slice(index + 1));
+        }
+    });
+
+    return result;
+}
+
+console.log('----------function wave2()----------------');
+console.log(wave2("hello"));
+console.log(wave2("hello world"));
+console.log(wave2("there are four words"));
