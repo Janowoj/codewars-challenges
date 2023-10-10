@@ -1652,3 +1652,27 @@ console.log('----------function wave2()----------------');
 console.log(wave2("hello"));
 console.log(wave2("hello world"));
 console.log(wave2("there are four words"));
+
+// ===================================================================
+
+function doubleInteger(i) {
+    // i will be an integer. Double it and return it.
+    return i * 2;
+}
+
+console.log(doubleInteger(0));
+console.log(doubleInteger(1));
+console.log(doubleInteger(9));
+
+//   another solution
+
+function doubleInteger2(i) {
+    // i will be an integer. Double it and return it.
+    return i + i;
+}
+
+//   another solution
+
+function doubleInteger(i) {
+    return i << 1;
+}
