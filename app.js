@@ -1676,3 +1676,59 @@ function doubleInteger2(i) {
 function doubleInteger(i) {
     return i << 1;
 }
+
+// ==========================================
+function createMorseMax1000(steps) {
+    'use strict';
+    let i, tmp, s1 = '0', s2 = '1';
+
+    if (steps === 0) return s1;
+    if (steps === 1) return s2;
+    if (steps < 10) {
+        for (i = 0; i < steps; i++) {
+            tmp = s1;
+            s1 += s2;
+            s2 += tmp;
+        } return s1;
+    } else if (steps === 10) {
+        for (i = 0; i < steps; i++) {
+            tmp = s1;
+            s1 += s2;
+            s2 += tmp;
+        } return s1.slice(0, -24)
+    } else return false;
+}
+
+console.log(createMorseMax1000(10));
+
+// =================================================
+
+(function (steps) {
+    'use strict';
+    var i, tmp, s1 = '0', s2 = '1';
+    for (i = 0; i < steps; i++) {
+        tmp = s1;
+        s1 += s2;
+        s2 += tmp;
+    }
+    console.log(s1);
+})(10);
+
+// =================================================
+
+function isThueMorse(seq) {
+    //coding and coding..
+    'use strict';
+    let i, tmp, s1 = '0', s2 = '1';
+    for (i = 0; i < 10; i++) {
+        tmp = s1;
+        s1 += s2;
+        s2 += tmp;
+    } return s1.slice(0, -24).slice(0, seq.length).split('').map(num => parseInt(num)).toString() === seq.toString();
+}
+
+
+console.log(isThueMorse([0]));
+console.log(isThueMorse([1]));
+console.log(isThueMorse([0, 1, 0, 0]));
+console.log(isThueMorse([0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0]));
