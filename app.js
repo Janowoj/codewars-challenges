@@ -1732,3 +1732,21 @@ console.log(isThueMorse([0]));
 console.log(isThueMorse([1]));
 console.log(isThueMorse([0, 1, 0, 0]));
 console.log(isThueMorse([0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0]));
+
+// another solution:
+
+function isThueMorse1(seq) {
+    var arr = [0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0]
+    for (var i = 0; i < seq.length; ++i)
+        if (arr[i] != seq[i])
+            return false;
+    return true;
+}
+
+//   another solution:
+
+function isThueMorse2(seq) {
+    return seq.every((x, i) => x == i.toString(2).replace(/0/g, '').length % 2);
+}
+
+
