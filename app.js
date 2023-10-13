@@ -1752,27 +1752,6 @@ function isThueMorse2(seq) {
 
 // =================================================
 
-// let hotpo = function (n) {
-//     let count = 0;
-//     if (n === 0) {
-//         return count;
-//     } else if (n === 1) {
-//         return count;
-//     } else if (n % 2 === 0) {
-//         if (n / 2 === 1) {
-//             return count += 1;
-//         } else if (n / 2 > 1) {
-//             count += 1;
-//             return hotpo(n / 2);
-//         }
-//     } else if (n % 2 !== 0) {
-//         count += 1;
-//         return hotpo(3 * n + 1);
-//     }
-// }
-
-// another solution:
-
 function hotpo(n) {
     let count = 0;
     while (n > 1) {
@@ -1817,3 +1796,17 @@ console.log(hotpo3(4));
 console.log(hotpo3(11));
 console.log(hotpo3(12));
 console.log(hotpo3(21));
+
+// =================================================
+
+function deleteNth(arr, n) {
+    for (let i = 0; i < arr.length; i++) {
+        while (arr.filter((item) => item === arr[i]).length > n) {
+            arr.splice(arr.lastIndexOf(arr[i]), 1);
+        }
+    } return arr;
+}
+
+console.log(deleteNth([1, 2, 3, 1, 2, 1, 2, 3], 2));
+console.log(deleteNth([20, 37, 20, 21], 1));
+console.log(deleteNth([1, 1, 3, 3, 7, 2, 2, 2, 2], 3));
