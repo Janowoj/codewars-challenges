@@ -1750,3 +1750,70 @@ function isThueMorse2(seq) {
 }
 
 
+// =================================================
+
+// let hotpo = function (n) {
+//     let count = 0;
+//     if (n === 0) {
+//         return count;
+//     } else if (n === 1) {
+//         return count;
+//     } else if (n % 2 === 0) {
+//         if (n / 2 === 1) {
+//             return count += 1;
+//         } else if (n / 2 > 1) {
+//             count += 1;
+//             return hotpo(n / 2);
+//         }
+//     } else if (n % 2 !== 0) {
+//         count += 1;
+//         return hotpo(3 * n + 1);
+//     }
+// }
+
+// another solution:
+
+function hotpo(n) {
+    let count = 0;
+    while (n > 1) {
+        if (n % 2 !== 0) {
+            n = (n * 3 + 1);
+        } else n = (n / 2);
+        count++;
+    }
+    return count;
+}
+
+// another solution:
+
+function hotpo2(n) {
+    let count = 0;
+    while (n > 1) {
+        n = n % 2 ? n * 3 + 1 : n / 2;
+        count++;
+    }
+    return count;
+}
+
+// another solution:
+
+let hotpo3 = n => n < 2 ? 0 : 1 + hotpo3(n % 2 ? (3 * n + 1) : n / 2);
+
+console.log('-------------hotpo(n)--------------');
+console.log(hotpo(0));
+console.log(hotpo(1));
+console.log(hotpo(2));
+console.log(hotpo(3));
+console.log(hotpo(4));
+console.log(hotpo(11));
+console.log(hotpo(12));
+console.log(hotpo(21));
+console.log('-------------hotpo3(n)--------------');
+console.log(hotpo3(0));
+console.log(hotpo3(1));
+console.log(hotpo3(2));
+console.log(hotpo3(3));
+console.log(hotpo3(4));
+console.log(hotpo3(11));
+console.log(hotpo3(12));
+console.log(hotpo3(21));
