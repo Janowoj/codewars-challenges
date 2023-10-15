@@ -1819,3 +1819,19 @@ function evenOrOdd(number) {
 
 console.log(evenOrOdd(2));
 console.log(evenOrOdd(0));
+
+// =================================================
+
+function oddOrEven(array) {
+    //enter code here
+    return (array.length === 0) ? [0] : (array.reduce((a, b) => (a + b))) % 2 === 0 || (array.length === 1 && array.includes(0) === true) ? "even" : "odd";
+}
+
+
+
+
+console.log('-------oddOrEven(array)--------');
+console.log(oddOrEven([0]));
+console.log(oddOrEven([0, 1, 4]));
+console.log(oddOrEven([]));
+console.log(oddOrEven([0, -1, -5]));
