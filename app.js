@@ -1810,3 +1810,12 @@ function deleteNth(arr, n) {
 console.log(deleteNth([1, 2, 3, 1, 2, 1, 2, 3], 2));
 console.log(deleteNth([20, 37, 20, 21], 1));
 console.log(deleteNth([1, 1, 3, 3, 7, 2, 2, 2, 2], 3));
+
+// =================================================
+
+function evenOrOdd(number) {
+    return number % 2 === 0 ? "Even" : "Odd"
+}
+
+console.log(evenOrOdd(2));
+console.log(evenOrOdd(0));
