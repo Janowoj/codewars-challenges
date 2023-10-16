@@ -1823,11 +1823,8 @@ console.log(evenOrOdd(0));
 // =================================================
 
 function oddOrEven(array) {
-    //enter code here
-    return (array.length === 0) ? [0] : (array.reduce((a, b) => (a + b))) % 2 === 0 || (array.length === 1 && array.includes(0) === true) ? "even" : "odd";
+    return array.reduce((a, b) => a + b, 0) % 2 === 0 ? 'even' : 'odd';
 }
-
-
 
 
 console.log('-------oddOrEven(array)--------');
@@ -1835,3 +1832,56 @@ console.log(oddOrEven([0]));
 console.log(oddOrEven([0, 1, 4]));
 console.log(oddOrEven([]));
 console.log(oddOrEven([0, -1, -5]));
+
+
+// another solution (with for loop):
+
+function oddOrEven2(array) {
+    var result = 0;
+    for (var i = 0; i < array.length; i++) { result += array[i]; }
+    if (result % 2 == 0) { return "even"; }
+    else { return "odd"; }
+}
+// =================================================
+
+function getCount(str) {
+    // let vowels = [a, e, i, o, u]
+
+    return str.split('').filter(letter => {
+        if (letter === 'a' || letter === 'e' || letter === 'i' || letter === 'o' || letter === 'u') {
+            return letter;
+        }
+    }).length;
+}
+
+console.log(getCount("abracadabra"));
+console.log(getCount("my pyx"));
+console.log(getCount("go fishing"));
+
+// another solution:
+
+function getCount1(str) {
+    return str.split('').filter(c => "aeiouAEIOU".includes(c)).length;
+}
+
+// another solution (with regex):
+
+function getCount2(str) {
+    return (str.match(/[aeiou]/ig) || []).length;
+}
+
+//   another solution (with for loop):
+
+function getCount3(str) {
+    var vowelsCount = 0;
+    var vowels = ["a", "e", "i", "o", "u"];
+    for (var i = 0; i < str.length; i++) {
+        for (var j = 0; j < vowels.length; j++) {
+            if (str[i] === vowels[j]) {
+                vowelsCount++;
+            }
+        }
+    }
+
+    return vowelsCount;
+}
