@@ -1885,3 +1885,42 @@ function getCount3(str) {
 
     return vowelsCount;
 }
+
+// =================================================
+
+function getSum(a, b) {
+    let result = 0;
+    if (a === b) {
+        return a;
+    } else if (a < b) {
+        for (let i = a; i <= b; i++) {
+            result += i;
+        }
+    } else if (a > b) {
+        for (let i = b; i <= a; i++) {
+            result += i;
+        }
+    } return result;
+}
+
+console.log('-------------getSum(a, b)--------------');
+console.log(getSum(0, -1));
+console.log(getSum(0, 1));
+console.log(getSum(1, 2));
+console.log(getSum(5, -1));
+console.log(getSum(5, 1));
+
+// another solution:
+
+const GetSum2 = (a, b) => {
+    let min = Math.min(a, b),
+        max = Math.max(a, b);
+    return (max - min + 1) * (min + max) / 2;
+}
+
+console.log('-------------getSum2(a, b)--------------');
+console.log(GetSum2(0, -1));
+console.log(GetSum2(0, 1));
+console.log(GetSum2(1, 2));
+console.log(GetSum2(5, -1));
+console.log(GetSum2(5, 1));
