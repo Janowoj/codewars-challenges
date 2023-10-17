@@ -1986,3 +1986,32 @@ console.log('------abbrevName3--------');
 console.log(abbrevName3("Sam Harris"));
 console.log(abbrevName3("Patrick feenan"));
 console.log(abbrevName3("evan cole"));
+
+// =================================================
+
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+    if ((distanceToPump / mpg) <= fuelLeft) {
+        return true;
+    } else return false;
+};
+
+console.log(zeroFuel(50, 25, 2));
+console.log(zeroFuel(100, 50, 1));
+
+// another solution:
+
+const zeroFuel2 = (distanceToPump, mpg, fuelLeft) => {
+    return distanceToPump / mpg <= fuelLeft;
+};
+
+console.log(zeroFuel2(50, 25, 2));
+console.log(zeroFuel2(100, 50, 1));
+
+//another solution (ternary operator):
+
+const zeroFuel3 = (distanceToPump, mpg, fuelLeft) => {
+    return distanceToPump / mpg > fuelLeft ? false : true;
+};
+
+console.log(zeroFuel3(50, 25, 2));
+console.log(zeroFuel3(100, 50, 1));
