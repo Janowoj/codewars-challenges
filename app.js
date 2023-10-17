@@ -1924,3 +1924,65 @@ console.log(GetSum2(0, 1));
 console.log(GetSum2(1, 2));
 console.log(GetSum2(5, -1));
 console.log(GetSum2(5, 1));
+
+// =================================================
+
+function sortAnimal(animals) {
+    let sortedAnimals = [...animals];
+
+    if (sortedAnimals.length !== 0) {
+        return sortedAnimals.sort((a, b) => {
+            if (a.numberOfLegs < b.numberOfLegs) {
+                return -1;
+            } else if (a.numberOfLegs > b.numberOfLegs) {
+                return 1;
+            } else if (a.name < b.name) {
+                return -1;
+            } else if (a.name > b.name) {
+                return 1;
+            }
+        })
+    } else return [];
+}
+
+console.log(sortAnimal([{ name: "Cat", numberOfLegs: 4 },
+{ name: "Snake", numberOfLegs: 0 },
+{ name: "Dog", numberOfLegs: 4 },
+{ name: "Pig", numberOfLegs: 4 },
+{ name: "Human", numberOfLegs: 2 },
+{ name: "Bird", numberOfLegs: 2 }]));
+console.log(sortAnimal([{ name: "Cat", numberOfLegs: 4 },
+{ name: "Centipede", numberOfLegs: 100 },
+{ name: "Dog", numberOfLegs: 4 },
+{ name: "Human", numberOfLegs: 2 },
+{ name: "Hen", numberOfLegs: 2 },
+{ name: "Lizard", numberOfLegs: 4 },
+{ name: "Snail", numberOfLegs: 0 }]));
+console.log(sortAnimal([]));
+
+// =================================================
+
+function abbrevName(name) {
+
+    return name.split(' ').map(item => item[0]).join('.').toUpperCase();
+
+}
+
+console.log(abbrevName("Sam Harris"));
+console.log(abbrevName("Patrick feenan"));
+console.log(abbrevName("evan cole"));
+
+// another solution:
+
+function abbrevName2(name) {
+    return name.split(' ').map(x => x.substr(0, 1).toUpperCase()).join('.');
+}
+
+// another solution:
+
+const abbrevName3 = name => name.match(/\b\w/g).join('.').toUpperCase();
+
+console.log('------abbrevName3--------');
+console.log(abbrevName3("Sam Harris"));
+console.log(abbrevName3("Patrick feenan"));
+console.log(abbrevName3("evan cole"));
