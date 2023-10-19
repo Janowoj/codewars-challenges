@@ -2015,3 +2015,21 @@ const zeroFuel3 = (distanceToPump, mpg, fuelLeft) => {
 
 console.log(zeroFuel3(50, 25, 2));
 console.log(zeroFuel3(100, 50, 1));
+
+
+// =================================================
+
+// Break camelCase
+
+// Sum of the first nth term of Series
+
+function excludingVatPrice(price) {
+    // your code
+    // return price !== null ? (price / 1.15).toFixed(2) : (-1);
+    return price !== null ? (price / 1.15).toFixed(2) * 1 : -1;
+}
+
+console.log(excludingVatPrice(230));
+console.log(excludingVatPrice(123));
+console.log(excludingVatPrice(null));
+console.log(excludingVatPrice(0));
