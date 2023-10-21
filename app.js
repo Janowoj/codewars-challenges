@@ -2033,3 +2033,38 @@ console.log(excludingVatPrice(230));
 console.log(excludingVatPrice(123));
 console.log(excludingVatPrice(null));
 console.log(excludingVatPrice(0));
+
+// another solution:
+
+excludingVatPrice = p => p === null ? -1 : +(p / 1.15).toFixed(2);
+
+// =====================================================
+
+// complete the function breakCamelCase
+function solution(string) {
+    let newString = '';
+
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === string[i].toLowerCase()) {
+            newString = newString.concat(string[i])
+        } else {
+            newString = newString.concat(` ${string[i]}`);
+        }
+    } return newString;
+}
+
+console.log('------------------solution(string)------------------');
+console.log(solution('camelCasing'));
+console.log(solution('camelCasingTest'));
+console.log(solution('camel'));
+
+// another solution:
+
+function solution2(string) {
+    return string.replace(/([A-Z])/g, ' $1');
+}
+
+console.log('------------------solution2(string)------------------');
+console.log(solution2('camelCasing'));
+console.log(solution2('camelCasingTest'));
+console.log(solution2('camel'));
