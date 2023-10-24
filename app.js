@@ -2068,3 +2068,39 @@ console.log('------------------solution2(string)------------------');
 console.log(solution2('camelCasing'));
 console.log(solution2('camelCasingTest'));
 console.log(solution2('camel'));
+
+// =====================================================
+
+function catchSignChange(arr) {
+    let count = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (Math.sign(arr[i]) === 0 && Math.sign(arr[i + 1]) === -1) {
+            count++;
+        } else if (Math.sign(arr[i]) === -1 && Math.sign(arr[i + 1]) === 0) {
+            count++;
+        } else if (Math.sign(arr[i]) === -1 && Math.sign(arr[i + 1]) === 1) {
+            count++
+        } else if (Math.sign(arr[i]) === 1 && Math.sign(arr[i + 1]) === -1) {
+            count++
+        } else count = count;
+    } return count;
+}
+
+console.log('------------------catchSignChange(arr)------------------');
+console.log(catchSignChange([1, 3, 4, 5]));
+console.log(catchSignChange([1, -3, -4, 0, 5]));
+console.log(catchSignChange([]));
+console.log(catchSignChange([-47, 84, -30, -11, -5, 74, 77]));
+
+// another solution:
+
+function catchSignChange2(arr) {
+    return arr.slice(1).filter((e, i) => (e < 0 && arr[i] >= 0) || (e >= 0 && arr[i] < 0)).length;
+}
+
+console.log('------------------catchSignChange2(arr)------------------');
+console.log(catchSignChange2([1, 3, 4, 5]));
+console.log(catchSignChange2([1, -3, -4, 0, 5]));
+console.log(catchSignChange2([]));
+console.log(catchSignChange2([-47, 84, -30, -11, -5, 74, 77]));
