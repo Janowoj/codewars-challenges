@@ -2150,3 +2150,34 @@ console.log(containAllRots2('bsjq', ['bsjq', 'qbsj', 'sjqb', 'twZNsslC', 'jqbs']
 console.log(containAllRots2('XjYABhR', ['TzYxlgfnhf', 'yqVAuoLjMLy', 'BhRXjYA', 'YABhRXj', 'hRXjYAB', 'jYABhRX', 'XjYABhR', 'ABhRXjY']));
 console.log(containAllRots2('abc', ['abc', 'acb', 'bac', 'foo', 'bca', 'cab', 'cba']));
 console.log(containAllRots2('pig', ['igp', 'gpi', 'gip']));
+
+// =================================================
+
+function squareOrSquareRoot(array) {
+    return array.map(item => {
+        if (Math.sqrt(item) % 1 === 0) {
+            return Math.sqrt(item)
+        } else {
+            return item * item;
+        }
+    })
+}
+
+console.log('------------------squareOrSquareRoot(array)------------------');
+console.log(squareOrSquareRoot([4, 3, 9, 7, 2, 1]));
+console.log(squareOrSquareRoot([100, 101, 5, 5, 1, 1]));
+
+// another solution:
+
+function squareOrSquareRoot2(array) {
+    return array.map(x => {
+        const r = Math.sqrt(x);
+        return (r % 1 == 0) ? r : (x * x);
+    });
+}
+
+console.log('------------------squareOrSquareRoot2(array)------------------');
+console.log(squareOrSquareRoot2([4, 3, 9, 7, 2, 1]));
+console.log(squareOrSquareRoot2([100, 101, 5, 5, 1, 1]));
+
+
