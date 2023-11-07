@@ -2104,3 +2104,49 @@ console.log(catchSignChange2([1, 3, 4, 5]));
 console.log(catchSignChange2([1, -3, -4, 0, 5]));
 console.log(catchSignChange2([]));
 console.log(catchSignChange2([-47, 84, -30, -11, -5, 74, 77]));
+
+// =====================================
+
+function containAllRots(string, arr) {
+
+    let newArr = [];
+
+    if (string === '') {
+        return true;
+    } else if (string.length === 1) {
+        return true;
+    } else if (string.length > 1) {
+        for (let i = 0; i < string.length; i++) {
+            newArr.push(string.slice(1) + string[0]);
+            string = string.slice(1) + string[0];
+        }
+    } return newArr.every(item => arr.includes(item));
+
+}
+
+console.log('------------------containAllRots(strng, arr)------------------');
+console.log(containAllRots('', []));
+console.log(containAllRots('', ['bsjq', 'qbsj']));
+console.log(containAllRots('bsjq', ['bsjq', 'qbsj', 'sjqb', 'twZNsslC', 'jqbs']));
+console.log(containAllRots('XjYABhR', ['TzYxlgfnhf', 'yqVAuoLjMLy', 'BhRXjYA', 'YABhRXj', 'hRXjYAB', 'jYABhRX', 'XjYABhR', 'ABhRXjY']));
+console.log(containAllRots('abc', ['abc', 'acb', 'bac', 'foo', 'bca', 'cab', 'cba']));
+console.log(containAllRots('pig', ['igp', 'gpi', 'gip']));
+
+// another solution:
+
+function containAllRots2(strng, arr) {
+    for (var i = 0; i < strng.length; i++) {
+        if (arr.indexOf(strng.slice(i) + strng.slice(0, i)) === -1) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log('------------------containAllRots2(strng, arr)------------------');
+console.log(containAllRots2('', []));
+console.log(containAllRots2('', ['bsjq', 'qbsj']));
+console.log(containAllRots2('bsjq', ['bsjq', 'qbsj', 'sjqb', 'twZNsslC', 'jqbs']));
+console.log(containAllRots2('XjYABhR', ['TzYxlgfnhf', 'yqVAuoLjMLy', 'BhRXjYA', 'YABhRXj', 'hRXjYAB', 'jYABhRX', 'XjYABhR', 'ABhRXjY']));
+console.log(containAllRots2('abc', ['abc', 'acb', 'bac', 'foo', 'bca', 'cab', 'cba']));
+console.log(containAllRots2('pig', ['igp', 'gpi', 'gip']));
