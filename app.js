@@ -2180,4 +2180,25 @@ console.log('------------------squareOrSquareRoot2(array)------------------');
 console.log(squareOrSquareRoot2([4, 3, 9, 7, 2, 1]));
 console.log(squareOrSquareRoot2([100, 101, 5, 5, 1, 1]));
 
+// ------------------------------------------------------------------
+
+function friend(friends) {
+    return friends.filter(friend => friend.length === 4);
+};
+
+console.log(friend(["Ryan", "Kieran", "Mark"]));
+console.log(friend(["Ryan", "Jimmy", "123", "4", "Cool Man"]));
+console.log(friend(["Jimm", "Cari", "aret", "truehdnviegkwgvke", "sixtyiscooooool"]));
+console.log(friend(["Love", "Your", "Face", "1"]));
+
+// another solution:
+
+function friend2(friends) {
+    return friends.filter(n => n.length === 4)
+}
+
+console.log(friend2(["Ryan", "Kieran", "Mark"]));
+
+// =================================================
+
 
